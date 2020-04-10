@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <components>
 	<component name="xenonhax_ship" class="ship_s">
-		<source geometry="extensions\assets\units\size_s\xenonhax_ship_data"/>
+		<source geometry="extensions\xenonhax\assets\units\size_s\xenonhax_ship_data"/>
 		<layers>
 			<layer>
 				<waypoints/>
@@ -1127,22 +1127,22 @@
 					<position x="-1.864552E-03" y="-1.698468" z="1.781931"/>
 				</offset>
 			</connection>
-			<connection name="con_weapon_01" tags="weapon small standard missile platformcollision symmetry symmetry_right xenonhax ">
+			<connection name="con_weapon_01" tags="weapon small platformcollision symmetry symmetry_right xenonhax ">
 				<offset>
 					<position x="7.904816" y="1.945496E-02" z="-4.574"/>
 				</offset>
 			</connection>
-			<connection name="con_weapon_002" tags="weapon small standard missile platformcollision symmetry symmetry_left xenonhax ">
+			<connection name="con_weapon_002" tags="weapon small platformcollision symmetry symmetry_left xenonhax ">
 				<offset>
 					<position x="-8.022705" y="1.945496E-02" z="-4.573905"/>
 				</offset>
 			</connection>
-			<connection name="con_weapon_005" tags="weapon small standard missile platformcollision symmetry symmetry_right symmetry_top xenonhax ">
+			<connection name="con_weapon_005" tags="weapon small platformcollision symmetry symmetry_right symmetry_top xenonhax ">
 				<offset>
 					<position x="2.485125" y="1.772541" z="2.748727"/>
 				</offset>
 			</connection>
-			<connection name="con_weapon_006" tags="weapon small standard missile platformcollision symmetry symmetry_left symmetry_top xenonhax  ">
+			<connection name="con_weapon_006" tags="weapon small platformcollision symmetry symmetry_left symmetry_top xenonhax  ">
 				<offset>
 					<position x="-2.485" y="1.807373" z="2.748727"/>
 				</offset>

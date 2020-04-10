@@ -14,7 +14,7 @@
 			<owner faction="argon" />
 		</ware>
 		
-		 <ware id="xenonhax_gun" name="xenonhax_gun" description="{20105,2192}" group="weapons" transport="equipment" volume="1" tags="equipment weapon xenonhax">
+		 <ware id="xenonhax_gun" name="xenonhax_gun" description="xenonhax_gun" group="weapons" transport="equipment" volume="1" tags="equipment weapon">
 			<price min="931956" average="1375587" max="1819218" />
 			<production time="10" amount="1" method="default" name="{20206,101}">
 			  <primary>
