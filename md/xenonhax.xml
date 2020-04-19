@@ -7,6 +7,8 @@
                     <event_cue_signalled cue="md.Setup.GameStart" />
                     <event_game_loaded />
                 </check_any>
+                <!-- false to disable -->
+                <check_value value="false" />
             </conditions>
             <actions>
                 <!-- target method -->
@@ -58,7 +60,7 @@
                         <do_if value="not $ClaimCounter?">
                             <set_value name="$ClaimCounter" exact="0" />
                         </do_if>
-                        <do_if value="player.ship == macro.BRUMSHIP and event.param2 == macro.BRUMWEP and event.param.owner == faction.xenon and event.param.isclass.ship and event.param.shieldpercentage lt 0.2">
+                        <do_if value="player.ship == macro.xenonhax_ship and event.param2 == macro.xenonhax_gun and event.param.owner == faction.xenon and event.param.isclass.ship and event.param.shieldpercentage lt 0.2">
                             <do_if value="$ClaimTarget != null and $ClaimTarget != event.param">
                                 <set_value name="$ClaimCounter" exact="0" />
                             </do_if>

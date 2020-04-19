@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mdscript name="Test_Xenon_Claim" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="D:\x4_extract_3.0b1/libraries/md.xsd">
+    <cues>
+        <cue name="Init" version="1">
+            <conditions>
+                <check_any>
+                    <event_cue_signalled cue="md.Setup.GameStart" />
+                    <event_game_loaded />
+                </check_any>
+                <!-- false to disable -->
+                <check_value value="true" />
+            </conditions>
+            <actions>
+                <!-- weapon method  -->
+                <!-- debug -->
+                <debug_to_file text="'start'" name="'xenonhax.log'" directory="'xenonhax'" append="false" />
+            </actions>
+            <cues>
+  
+                <cue name="Claim_Attacked" instantiate="true">
+                    <conditions>
+                        <event_player_attacked_object />
+                    </conditions>
+                    <actions>
+                        <debug_to_file text="'playership: %s weapon: %s shieldpercentage %s'.[player.ship.macro, if event.param2.macro then event.param2.macro else event.param2, event.param.shieldpercentage]" name="'xenonhax.log'" directory="'xenonhax'" />
+                        <!-- <do_if value="event.param == faction.xenon and event.param.shieldpercentage lt 20"> -->
+                            <do_if value="not $Attacked? or $Attacked == null">
+                                <set_value name="$Attacked" exact="event.param" />
+                                <set_value name="$Counter" exact="0" />
+                            </do_if>
+                            <do_if value="$Attacked == event.param">
+                                <set_value name="$Counter" exact="1" operation="add" />
+                            </do_if>
+                            <do_else>
+                                <set_value name="$Attacked" exact="null" />
+                                <set_value name="$Counter" exact="0" />
+                            </do_else>
+                            <do_if value="$Counter == 10">
+                                <set_owner object="event.param" faction="faction.player" overridenpc="true" />
+                            </do_if>
+                        <!-- </do_if> -->
+                    </actions>
+                </cue>
+            </cues>
+        </cue>
+    </cues>
+</mdscript>
