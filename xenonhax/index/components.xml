@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- ?xml-stylesheet href="index.xsl" type="text/xsl" ? -->
-<diff>
-	<add sel = '/index' >
-		<entry name="xenonhax_ship" value="extensions\xenonhax\assets\units\size_s\xenonhax_ship" />
-		<entry name="xenonhax_gun" value="extensions\xenonhax\assets\props\WeaponSystems\energy\xenonhax_gun" />
-	</add>
-</diff>

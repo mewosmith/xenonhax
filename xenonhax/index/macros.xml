@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- ?xml-stylesheet href="index.xsl" type="text\xsl" ? -->
-<index>
-		<entry name="xenonhax_ship_macro" value="extensions\xenonhax\assets\units\size_s\macros\xenonhax_ship_macro" />
-		<entry name="xenonhax_gun_macro" value="extensions\xenonhax\assets\props\WeaponSystems\energy\macros\xenonhax_gun_macro" />
-</index>
