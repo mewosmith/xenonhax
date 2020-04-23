@@ -8,7 +8,7 @@
                     <event_game_loaded />
                 </check_any>
                 <!-- false to disable -->
-                <check_value value="true" />
+                <check_value value="false" />
             </conditions>
             <actions>
                 <!-- weapon method  -->
@@ -16,14 +16,13 @@
                 <debug_to_file text="'start'" name="'xenonhax.log'" directory="'xenonhax'" append="false" />
             </actions>
             <cues>
-  
                 <cue name="Claim_Attacked" instantiate="true">
                     <conditions>
                         <event_player_attacked_object />
                     </conditions>
                     <actions>
-                        <debug_to_file text="'playership: %s weapon: %s shieldpercentage %s'.[player.ship.macro, if event.param2.macro then event.param2.macro else event.param2, event.param.shieldpercentage]" name="'xenonhax.log'" directory="'xenonhax'" />
-                        <!-- <do_if value="event.param == faction.xenon and event.param.shieldpercentage lt 20"> -->
+                        <debug_to_file text="'playership: %s weapon: %s shieldpercentage: %s counter: %s'.[player.ship.macro, if event.param2.macro then event.param2.macro else event.param2, event.param.shieldpercentage, $Counter]" name="'xenonhax.log'" directory="'xenonhax'" />
+                        <do_if value="event.param == faction.xenon and event.param.shieldpercentage lt 20">
                             <do_if value="not $Attacked? or $Attacked == null">
                                 <set_value name="$Attacked" exact="event.param" />
                                 <set_value name="$Counter" exact="0" />
@@ -35,10 +34,23 @@
                                 <set_value name="$Attacked" exact="null" />
                                 <set_value name="$Counter" exact="0" />
                             </do_else>
-                            <do_if value="$Counter == 10">
+                            <do_if value="$Counter gt 10 and event.param.isclass.[class.ship_s]">
                                 <set_owner object="event.param" faction="faction.player" overridenpc="true" />
                             </do_if>
-                        <!-- </do_if> -->
+                            <do_if value="$Counter gt 50 and event.param.isclass.[class.ship_m]">
+                                <set_owner object="event.param" faction="faction.player" overridenpc="true" />
+                            </do_if>
+                            <do_if value="$Counter gt 150 and event.param.isclass.[class.ship_l]">
+                                <set_owner object="event.param" faction="faction.player" overridenpc="true" />
+                            </do_if>
+                            <do_if value="$Counter gt 250 and event.param.isclass.[class.ship_xl]">
+                                <set_owner object="event.param" faction="faction.player" overridenpc="true" />
+                            </do_if>
+                        </do_if>
+                        <do_else>
+                            <set_value name="$Counter" exact="0" />
+                        </do_else>
+                        <debug_to_file text="'playership: %s weapon: %s shieldpercentage: %s counter: %s '.[player.ship.macro, if event.param2.macro then event.param2.macro else event.param2, event.param.shieldpercentage, $Counter]" name="'xenonhax.log'" directory="'xenonhax'" />
                     </actions>
                 </cue>
             </cues>
